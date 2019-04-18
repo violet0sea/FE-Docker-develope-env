@@ -1,0 +1,6 @@
+docker-compose
+**/.cache
+**/node_modules/
+**/dist/
+**/dist.zip
+**/*debug.log*

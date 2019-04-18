@@ -1,0 +1,47 @@
+@import 'reset';
+@import 'variables';
+
+@function rem($basesize) {
+  @return ($basesize / $vw_fontsize) * 1rem;
+}
+
+html {
+  // 取视口大小的1 / 10作为1rem
+  font-size: ($vw_fontsize / $vw_design) * 100vw;
+
+  // 同时，通过Media Queries 限制根元素最大最小值
+  @media screen and (max-width: 360px) {
+    font-size: 36px;
+  }
+  @media screen and (min-width: 750px) {
+    font-size: 75px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: rem(14);
+  overflow: hidden;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 rem(12);
+  color: $normal_color;
+  line-height: calc(23 / 14);
+  overflow-wrap: break-word;
+}
+
+#root {
+  h1 {
+    color: $title_color;
+    font-weight: 500;
+    font-size: rem(22);
+    line-height: calc(28 / 22);
+    padding-top: rem(20);
+    padding-bottom: rem(20);
+  }
+}
