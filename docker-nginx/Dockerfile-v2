@@ -1,0 +1,14 @@
+FROM nginx:latest
+
+ARG source=build/
+ARG dest=/code/
+ARG nginxDir=/etc/nginx/
+ARG port=80
+
+LABEL author="haiwang" \
+  date="2019-05-08"
+
+COPY $source $dest
+COPY nginx.conf $nginxDir
+
+EXPOSE $port

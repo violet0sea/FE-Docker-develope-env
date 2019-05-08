@@ -1,0 +1,15 @@
+version: "3"
+services:
+  webapp:
+    build: .
+    ports:
+      - "3006:3006"
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+      - mongo
+  redis:
+    image: "redis:alpine"
+  mongo:
+    image: "mongo:4.0"
